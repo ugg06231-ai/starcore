@@ -197,10 +197,10 @@
 
         /* About */
         .about-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-            align-items: stretch;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: start;
         }
         .about-text h3 {
             font-size: 22px;
@@ -224,10 +224,9 @@
             margin-bottom: 16px;
         }
         .about-stats {
-            flex: 1 1 300px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
         }
         .stat-card {
             background: var(--star-card);
@@ -252,20 +251,16 @@
 
         /* Services */
         .services-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
         .service-card {
             background: var(--star-card);
             border: 1px solid var(--star-border);
             border-radius: var(--radius);
-            padding: 16px 20px;
+            padding: 24px;
             transition: all 0.3s;
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            flex: 1 1 220px;
         }
         .service-card:hover {
             border-color: #E3C766;
@@ -273,8 +268,8 @@
             box-shadow: 0 16px 48px rgba(227, 199, 102, 0.15);
         }
         .service-card .icon {
-            font-size: 28px;
-            flex-shrink: 0;
+            font-size: 34px;
+            margin-bottom: 12px;
         }
         .service-card h3 {
             font-size: 18px;
@@ -340,19 +335,17 @@
             margin-bottom: 32px;
         }
         .training-grid {
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 16px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
             margin-bottom: 32px;
         }
         .training-module {
             background: #F5F0E0;
             border-radius: 16px;
-            padding: 16px;
+            padding: 20px;
             text-align: center;
             border: 1px solid #D4C57A;
-            flex: 1 1 0;
-            min-width: 0;
         }
         .training-module .icon {
             font-size: 32px;
@@ -471,10 +464,10 @@
 
         /* White cards (company) */
         .white-cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-bottom: 32px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
         }
         .white-card {
             background: #FFFFFF;
@@ -485,8 +478,8 @@
             box-shadow: var(--shadow);
         }
         .white-card .icon {
-            font-size: 28px;
-            flex-shrink: 0;
+            font-size: 34px;
+            margin-bottom: 12px;
         }
         .white-card h4 {
             font-size: 18px;
@@ -536,8 +529,9 @@
             background: var(--star-card);
             border: 1px solid var(--star-border);
             border-radius: var(--radius);
-            padding: 24px;
+            padding: 32px;
             text-align: center;
+            max-width: 600px;
             margin: 0 auto;
         }
         .contact-card h3 {
@@ -551,22 +545,21 @@
         }
         .contact-links {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            flex-direction: column;
+            gap: 12px;
         }
         .contact-link {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px 16px;
+            gap: 12px;
+            padding: 14px 20px;
             background: rgba(255,255,255,0.05);
             border: 1px solid var(--star-border);
             border-radius: 12px;
             text-decoration: none;
             color: #D1D5DB;
-            font-size: 14px;
+            font-size: 15px;
             transition: all 0.3s;
-            flex: 1 1 auto;
         }
         .contact-link:hover {
             border-color: #E3C766;
@@ -652,9 +645,9 @@
         }
 
         .video-showcase {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
         }
         .video-card {
             background: var(--star-card);
@@ -674,7 +667,7 @@
             background: #000;
         }
         .video-meta {
-            padding: 12px 16px 16px;
+            padding: 16px 20px 20px;
         }
         .video-meta h4 {
             font-size: 16px;
@@ -702,18 +695,20 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 * { -webkit-tap-highlight-color: transparent; }
 
 @media (max-width: 768px) {
-  .about-grid {
-    flex-direction: column !important;
-  }
-  .about-stats {
-    flex: 1 1 auto !important;
-  }
+  /* 关于我们：grid 改单列 */
+  .about-grid { grid-template-columns: 1fr !important; }
+  .about-cols { column-count: 1 !important; }
+  .about-stats { grid-template-columns: 1fr !important; }
 
-  .service-card, .white-card, .stat-card, .training-card {
-    flex: 1 1 100% !important;
-  }
+  /* 所有卡片网格改单列 */
+  .services-grid { grid-template-columns: 1fr !important; }
+  .white-cards { grid-template-columns: 1fr !important; }
+  .video-showcase { grid-template-columns: 1fr !important; }
 
-  .video-showcase { flex-direction: column !important; }
+  /* 培训模块：强制横版 */
+  .training-grid { grid-template-columns: repeat(3, 1fr) !important; }
+  .training-module { min-width: 0 !important; padding: 12px !important; font-size: 13px !important; }
+
   /* 导航：换行 + 缩小 */
   .nav-inner { flex-wrap: wrap; justify-content: center; gap: 6px 12px; padding: 10px 12px !important; }
   .nav-links { flex-wrap: wrap !important; gap: 6px 14px !important; justify-content: center; width: 100%; }
@@ -730,10 +725,6 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   .hero h1 { font-size: 1.7rem !important; line-height: 1.35 !important; }
   .hero .subtitle { font-size: 0.95rem !important; line-height: 1.6 !important; }
 
-  /* 关于我们：双栏改单栏 */
-  .about-grid { grid-template-columns: 1fr !important; }
-  .about-cols { column-count: 1 !important; }
-
   /* 所有标题防溢出 */
   h1, h2, h3, p { word-break: break-word; overflow-wrap: break-word; }
 
@@ -745,6 +736,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 
   /* 表格转卡片式（如果有） */
   table { display: block; overflow-x: auto; white-space: nowrap; }
+}
 }
 @media (max-width: 480px) {
   .hero h1 { font-size: 1.45rem !important; }
