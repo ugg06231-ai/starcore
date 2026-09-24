@@ -675,6 +675,37 @@
     #lightbox-overlay .lb-close { position:absolute; top:24px; right:32px; color:#fff; font-size:36px; cursor:pointer; font-family:Arial,sans-serif; line-height:1; opacity:0.7; transition:opacity 0.2s; }
     #lightbox-overlay .lb-close:hover { opacity:1; }
     #lightbox-overlay .lb-hint { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.5); font-size:14px; font-family:Arial,sans-serif; }
+
+/* ===== 移动端适配 ===== */
+@media (max-width: 768px) {
+  .container { width: 100%; max-width: 100%; padding: 0 16px; box-sizing: border-box; }
+  .hero h1 { font-size: 2.2rem !important; }
+  .hero p { font-size: 1rem !important; }
+  .section-title { font-size: 1.6rem !important; }
+  /* 所有网格变单列 */
+  [class*="grid"] { grid-template-columns: 1fr !important; }
+  /* flex 布局纵向堆叠 */
+  .stats, .contact-grid, .faculty-grid, .video-grid, .services-grid {
+    flex-direction: column; align-items: stretch;
+  }
+  /* 视频 iframe 自适应 */
+  .video-card, .video-card iframe, .video-iframe, iframe {
+    width: 100% !important; max-width: 100% !important;
+    aspect-ratio: 16 / 9; height: auto !important;
+  }
+  /* 图片自适应 */
+  img { max-width: 100%; height: auto; }
+  /* 导航折叠 */
+  nav ul { flex-direction: column; gap: 8px; }
+  nav { padding: 12px 16px; }
+  /* 内边距缩小 */
+  section { padding: 48px 0 !important; }
+}
+@media (max-width: 480px) {
+  .hero h1 { font-size: 1.8rem !important; }
+  iframe { height: auto !important; aspect-ratio: 16 / 9; }
+}
+
 </style>
 </head>
 <body>
