@@ -163,16 +163,23 @@
             padding: 40px 20px;
         }
         .hero h1 {
-            font-size: 76px;
-            font-weight: 700;
+            font-size: 88px;
+            font-weight: 900;
             margin-bottom: 16px;
             background: linear-gradient(135deg, #E3C766 0%, #B08D2E 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .hero .subtitle {
-            font-size: 17px;
+            font-size: 15px;
             color: #D1D5DB;
+            margin-bottom: 8px;
+        }
+        .hero .tagline {
+            font-size: 16px;
+            color: #B0B8C4;
+            font-weight: 500;
+            letter-spacing: 2px;
             margin-bottom: 32px;
         }
         .hero-stats {
@@ -717,7 +724,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   .stars { display: none !important; }
 
   /* Hero 标题缩小 */
-  .hero h1 { font-size: 2.8rem !important; line-height: 1.35 !important; }
+  .hero h1 { font-size: 3.4rem !important; line-height: 1.35 !important; }
   .hero .subtitle { font-size: 0.95rem !important; line-height: 1.6 !important; }
 
   /* 所有标题防溢出 */
@@ -734,7 +741,7 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 }
 }
 @media (max-width: 480px) {
-  .hero h1 { font-size: 2.1rem !important; }
+  .hero h1 { font-size: 2.6rem !important; }
   .nav-links a { font-size: 12px !important; }
   .nav-links { gap: 5px 10px !important; }
   section { padding: 36px 0 !important; }
@@ -764,8 +771,9 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 
         <!-- Hero -->
         <section class="hero">
-            <h1>用 AI 造梦 · 让想象触手可及</h1>
-            <p class="subtitle">星核幻想 — AI 创意内容与人才培养领航者</p>
+            <h1>星核幻想</h1>
+            <p class="subtitle">用 AI 造梦 · 让想象触手可及</p>
+            <p class="tagline">AI 创意内容与人才培养领航者</p>
             <a href="#training" class="btn-primary">了解培训课程</a>
             <a href="#contact" class="btn-outline">开始合作</a>
             <div class="hero-stats">
